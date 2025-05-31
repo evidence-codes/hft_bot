@@ -8,7 +8,7 @@ add-exchange: ## Run FastAPI app for adding exchanges
 	uvicorn $(APP_DIR).exchange.add_exchange:app --reload
 
 create-dcabot: ## Run FastAPI app for creating DCA bots
-	uvicorn $(APP_DIR).dca_bot.create_dca_bot:app --reload
+	uvicorn $(APP_DIR).dca_bot.create_dca_bot:app --reload --port 8080
 
 check: ## Run all checks
 	make typecheck

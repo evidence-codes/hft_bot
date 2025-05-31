@@ -1,5 +1,6 @@
 PYTHON=uv pip
 APP_DIR=bot
+PORT=8080
 
 run: ## Run the bot main script
 	python -m $(APP_DIR).main
@@ -8,7 +9,7 @@ add-exchange: ## Run FastAPI app for adding exchanges
 	uvicorn $(APP_DIR).exchange.add_exchange:app --reload
 
 create-dcabot: ## Run FastAPI app for creating DCA bots
-	uvicorn $(APP_DIR).dca_bot.create_dca_bot:app --reload --port 8080
+	uvicorn $(APP_DIR).dca_bot.create_dca_bot:app --host 0.0.0.0 --port ${PORT}
 
 check: ## Run all checks
 	make typecheck
